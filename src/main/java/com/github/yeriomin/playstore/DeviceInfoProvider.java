@@ -1,7 +1,7 @@
 package com.github.yeriomin.playstore;
 
-import com.github.yeriomin.playstore.api.AndroidCheckinRequest;
-import com.github.yeriomin.playstore.api.DeviceConfigurationProto;
+import com.github.yeriomin.playstore.message.AndroidCheckinRequest;
+import com.github.yeriomin.playstore.message.DeviceConfigurationProto;
 
 public interface DeviceInfoProvider {
 

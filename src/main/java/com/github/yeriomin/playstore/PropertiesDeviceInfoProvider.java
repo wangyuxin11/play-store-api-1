@@ -4,10 +4,10 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Properties;
 
-import com.github.yeriomin.playstore.api.AndroidBuildProto;
-import com.github.yeriomin.playstore.api.AndroidCheckinProto;
-import com.github.yeriomin.playstore.api.AndroidCheckinRequest;
-import com.github.yeriomin.playstore.api.DeviceConfigurationProto;
+import com.github.yeriomin.playstore.message.AndroidBuildProto;
+import com.github.yeriomin.playstore.message.AndroidCheckinProto;
+import com.github.yeriomin.playstore.message.AndroidCheckinRequest;
+import com.github.yeriomin.playstore.message.DeviceConfigurationProto;
 
 public class PropertiesDeviceInfoProvider implements DeviceInfoProvider {
 
