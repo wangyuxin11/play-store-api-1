@@ -14,7 +14,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
 
-import com.github.yeriomin.playstore.GooglePlayException;
+import com.github.yeriomin.playstore.api.GooglePlayException;
 
 class MockOkHttpClientAdapter extends OkHttpClientAdapter {
 

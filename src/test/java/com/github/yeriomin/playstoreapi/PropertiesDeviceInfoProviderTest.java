@@ -3,7 +3,7 @@ package com.github.yeriomin.playstoreapi;
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.github.yeriomin.playstore.PropertiesDeviceInfoProvider;
+import com.github.yeriomin.playstore.api.PropertiesDeviceInfoProvider;
 
 import java.io.File;
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package com.github.yeriomin.playstore;
+package com.github.yeriomin.playstore.api;
 
 import java.io.IOException;
 import java.util.Collections;

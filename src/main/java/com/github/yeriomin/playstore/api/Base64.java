@@ -1,4 +1,4 @@
-package com.github.yeriomin.playstore;
+package com.github.yeriomin.playstore.api;
 /*
  * Copyright (C) 2010 The Android Open Source Project
  *

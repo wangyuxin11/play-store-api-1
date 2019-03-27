@@ -2,8 +2,8 @@ package com.github.yeriomin.playstoreapi;
 
 import java.util.Map;
 
-import com.github.yeriomin.playstore.GooglePlayAPI;
-import com.github.yeriomin.playstore.GooglePlayException;
+import com.github.yeriomin.playstore.api.GooglePlayAPI;
+import com.github.yeriomin.playstore.api.GooglePlayException;
 
 public class MockGooglePlayAPI extends GooglePlayAPI {
 

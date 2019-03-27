@@ -4,10 +4,10 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.github.yeriomin.playstore.ApiBuilderException;
-import com.github.yeriomin.playstore.GooglePlayAPI;
-import com.github.yeriomin.playstore.PlayStoreApiBuilder;
-import com.github.yeriomin.playstore.PropertiesDeviceInfoProvider;
+import com.github.yeriomin.playstore.api.ApiBuilderException;
+import com.github.yeriomin.playstore.api.GooglePlayAPI;
+import com.github.yeriomin.playstore.api.PlayStoreApiBuilder;
+import com.github.yeriomin.playstore.api.PropertiesDeviceInfoProvider;
 
 import java.io.IOException;
 import java.util.Locale;

@@ -1,4 +1,4 @@
-package com.github.yeriomin.playstore;
+package com.github.yeriomin.playstore.api;
 
 import com.github.yeriomin.playstore.message.AndroidCheckinRequest;
 import com.github.yeriomin.playstore.message.DeviceConfigurationProto;

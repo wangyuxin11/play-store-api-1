@@ -9,10 +9,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
-import com.github.yeriomin.playstore.AuthException;
-import com.github.yeriomin.playstore.GooglePlayAPI;
-import com.github.yeriomin.playstore.GooglePlayException;
-import com.github.yeriomin.playstore.HttpClientAdapter;
+import com.github.yeriomin.playstore.api.AuthException;
+import com.github.yeriomin.playstore.api.GooglePlayAPI;
+import com.github.yeriomin.playstore.api.GooglePlayException;
+import com.github.yeriomin.playstore.api.HttpClientAdapter;
 
 class OkHttpClientAdapter extends HttpClientAdapter {
 

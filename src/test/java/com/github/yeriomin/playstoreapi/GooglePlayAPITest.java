@@ -5,11 +5,11 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.github.yeriomin.playstore.CategoryAppsIterator;
-import com.github.yeriomin.playstore.GooglePlayAPI;
-import com.github.yeriomin.playstore.PropertiesDeviceInfoProvider;
-import com.github.yeriomin.playstore.SearchIterator;
-import com.github.yeriomin.playstore.UrlIterator;
+import com.github.yeriomin.playstore.api.CategoryAppsIterator;
+import com.github.yeriomin.playstore.api.GooglePlayAPI;
+import com.github.yeriomin.playstore.api.PropertiesDeviceInfoProvider;
+import com.github.yeriomin.playstore.api.SearchIterator;
+import com.github.yeriomin.playstore.api.UrlIterator;
 import com.github.yeriomin.playstore.message.AndroidCheckinRequest;
 import com.github.yeriomin.playstore.message.SearchSuggestEntry;
 import com.github.yeriomin.playstore.message.SearchSuggestResponse;
