@@ -10,6 +10,9 @@ import com.github.yeriomin.playstore.GooglePlayAPI;
 import com.github.yeriomin.playstore.PropertiesDeviceInfoProvider;
 import com.github.yeriomin.playstore.SearchIterator;
 import com.github.yeriomin.playstore.UrlIterator;
+import com.github.yeriomin.playstore.api.AndroidCheckinRequest;
+import com.github.yeriomin.playstore.api.SearchSuggestEntry;
+import com.github.yeriomin.playstore.api.SearchSuggestResponse;
 
 import java.io.IOException;
 import java.util.*;

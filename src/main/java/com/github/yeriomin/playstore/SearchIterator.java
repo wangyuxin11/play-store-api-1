@@ -5,8 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.github.yeriomin.playstoreapi.DocV2;
-import com.github.yeriomin.playstoreapi.DocV2.Builder;
+import com.github.yeriomin.playstore.api.DocV2;
+import com.github.yeriomin.playstore.api.DocV2.Builder;
 
 /**
  * Iterates through search result pages

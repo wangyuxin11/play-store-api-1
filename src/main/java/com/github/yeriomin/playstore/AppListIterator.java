@@ -8,10 +8,10 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.NoSuchElementException;
 
-import com.github.yeriomin.playstoreapi.DocV2;
-import com.github.yeriomin.playstoreapi.ListResponse;
-import com.github.yeriomin.playstoreapi.Payload;
-import com.github.yeriomin.playstoreapi.SearchResponse;
+import com.github.yeriomin.playstore.api.DocV2;
+import com.github.yeriomin.playstore.api.ListResponse;
+import com.github.yeriomin.playstore.api.Payload;
+import com.github.yeriomin.playstore.api.SearchResponse;
 
 abstract public class AppListIterator implements Iterator {
 
