@@ -14,6 +14,8 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
 
+import com.github.yeriomin.playstore.GooglePlayException;
+
 class MockOkHttpClientAdapter extends OkHttpClientAdapter {
 
 	private List<Request> requests = new ArrayList<Request>();
@@ -24,7 +26,16 @@ class MockOkHttpClientAdapter extends OkHttpClientAdapter {
 		Request request = requestBuilder.headers(Headers.of(headers)).build();
 		this.requests.add(request);
         String fileName = getBodyFileName(request);
-        System.out.println("Checking if " + fileName + " exists");
+        System.out.println("MockOkHttpClientAdapter -> Checking if " + fileName + " exists");
+        
+        if(fileName.indexOf("auth") > 0) {
+        	fileName = "request.auth.1019146712.bin";
+        } else if(fileName.indexOf("checkin") > 0) {
+        	fileName = "request.checkin.-1877457821.bin";
+        }
+        
+        System.out.println("fileName = " + fileName);
+        
         URL url = getClass().getClassLoader().getResource(fileName);
         if (null != url) {
             String path = java.net.URLDecoder.decode(new File(url.getFile()).getAbsolutePath(), "UTF-8");

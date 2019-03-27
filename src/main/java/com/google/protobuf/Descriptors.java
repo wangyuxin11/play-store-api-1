@@ -89,25 +89,25 @@ public final class Descriptors {
    */
   public static final class FileDescriptor extends GenericDescriptor {
     /** Convert the descriptor to its protocol message representation. */
-    @Override
+    
     public FileDescriptorProto toProto() {
       return proto;
     }
 
     /** Get the file name. */
-    @Override
+    
     public String getName() {
       return proto.getName();
     }
 
     /** Returns this object. */
-    @Override
+    
     public FileDescriptor getFile() {
       return this;
     }
 
     /** Returns the same as getName(). */
-    @Override
+    
     public String getFullName() {
       return proto.getName();
     }
@@ -609,13 +609,13 @@ public final class Descriptors {
     public int getIndex() { return index; }
 
     /** Convert the descriptor to its protocol message representation. */
-    @Override
+    
     public DescriptorProto toProto() {
       return proto;
     }
 
     /** Get the type's unqualified name. */
-    @Override
+    
     public String getName() {
       return proto.getName();
     }
@@ -631,13 +631,13 @@ public final class Descriptors {
      * </pre>
      * {@code Baz}'s full name is "foo.bar.Baz".
      */
-    @Override
+    
     public String getFullName() {
       return fullName;
     }
 
     /** Get the {@link FileDescriptor} containing this descriptor. */
-    @Override
+    
     public FileDescriptor getFile() {
       return file;
     }
@@ -918,19 +918,19 @@ public final class Descriptors {
     public int getIndex() { return index; }
 
     /** Convert the descriptor to its protocol message representation. */
-    @Override
+    
     public FieldDescriptorProto toProto() {
       return proto;
     }
 
     /** Get the field's unqualified name. */
-    @Override
+    
     public String getName() {
       return proto.getName();
     }
 
     /** Get the field's number. */
-    @Override
+    
     public int getNumber() {
       return proto.getNumber();
     }
@@ -939,7 +939,7 @@ public final class Descriptors {
      * Get the field's fully-qualified name.
      * @see Descriptors.Descriptor#getFullName()
      */
-    @Override
+    
     public String getFullName() {
       return fullName;
     }
@@ -956,13 +956,13 @@ public final class Descriptors {
     public JavaType getJavaType() { return type.getJavaType(); }
 
     /** For internal use only. */
-    @Override
+    
     public WireFormat.JavaType getLiteJavaType() {
       return getLiteType().getJavaType();
     }
 
     /** Get the {@code FileDescriptor} containing this descriptor. */
-    @Override
+    
     public FileDescriptor getFile() {
       return file;
     }
@@ -971,7 +971,7 @@ public final class Descriptors {
     public Type getType() { return type; }
 
     /** For internal use only. */
-    @Override
+    
     public WireFormat.FieldType getLiteType() {
       return table[type.ordinal()];
     }
@@ -1013,7 +1013,7 @@ public final class Descriptors {
     }
 
     /** Is this field declared repeated? */
-    @Override
+    
     public boolean isRepeated() {
       return proto.getLabel() == FieldDescriptorProto.Label.LABEL_REPEATED;
     }
@@ -1021,7 +1021,7 @@ public final class Descriptors {
     /** Does this field have the {@code [packed = true]} option or is this field
      *  packable in proto3 and not explicitly setted to unpacked?
      */
-    @Override
+    
     public boolean isPacked() {
       if (!isPackable()) {
         return false;
@@ -1110,7 +1110,7 @@ public final class Descriptors {
     }
 
     /** For enum fields, gets the field's type. */
-    @Override
+    
     public EnumDescriptor getEnumType() {
       if (getJavaType() != JavaType.ENUM) {
         throw new UnsupportedOperationException(
@@ -1129,7 +1129,7 @@ public final class Descriptors {
      * @return negative, zero, or positive if {@code this} is less than,
      *         equal to, or greater than {@code other}, respectively.
      */
-    @Override
+    
     public int compareTo(final FieldDescriptor other) {
       if (other.containingType != containingType) {
         throw new IllegalArgumentException(
@@ -1139,7 +1139,7 @@ public final class Descriptors {
       return getNumber() - other.getNumber();
     }
 
-    @Override
+    
     public String toString() {
       return getFullName();
     }
@@ -1530,7 +1530,7 @@ public final class Descriptors {
      * For internal use only.  This is to satisfy the FieldDescriptorLite
      * interface.
      */
-    @Override
+    
     public MessageLite.Builder internalMergeFrom(MessageLite.Builder to, MessageLite from) {
       // FieldDescriptors are only used with non-lite messages so we can just
       // down-cast and call mergeFrom directly.
@@ -1551,13 +1551,13 @@ public final class Descriptors {
     public int getIndex() { return index; }
 
     /** Convert the descriptor to its protocol message representation. */
-    @Override
+    
     public EnumDescriptorProto toProto() {
       return proto;
     }
 
     /** Get the type's unqualified name. */
-    @Override
+    
     public String getName() {
       return proto.getName();
     }
@@ -1566,13 +1566,13 @@ public final class Descriptors {
      * Get the type's fully-qualified name.
      * @see Descriptors.Descriptor#getFullName()
      */
-    @Override
+    
     public String getFullName() {
       return fullName;
     }
 
     /** Get the {@link FileDescriptor} containing this descriptor. */
-    @Override
+    
     public FileDescriptor getFile() {
       return file;
     }
@@ -1609,7 +1609,7 @@ public final class Descriptors {
      * @param number The value's number.
      * @return the value's descriptor, or {@code null} if not found.
      */
-    @Override
+    
     public EnumValueDescriptor findValueByNumber(final int number) {
       return file.pool.enumValuesByNumber.get(
         new DescriptorPool.DescriptorIntPair(this, number));
@@ -1736,37 +1736,37 @@ public final class Descriptors {
     public int getIndex() { return index; }
 
     /** Convert the descriptor to its protocol message representation. */
-    @Override
+    
     public EnumValueDescriptorProto toProto() {
       return proto;
     }
 
     /** Get the value's unqualified name. */
-    @Override
+    
     public String getName() {
       return proto.getName();
     }
 
     /** Get the value's number. */
-    @Override
+    
     public int getNumber() {
       return proto.getNumber();
     }
 
-    @Override
+    
     public String toString() { return proto.getName(); }
 
     /**
      * Get the value's fully-qualified name.
      * @see Descriptors.Descriptor#getFullName()
      */
-    @Override
+    
     public String getFullName() {
       return fullName;
     }
 
     /** Get the {@link FileDescriptor} containing this descriptor. */
-    @Override
+    
     public FileDescriptor getFile() {
       return file;
     }
@@ -1837,13 +1837,13 @@ public final class Descriptors {
     public int getIndex() { return index; }
 
     /** Convert the descriptor to its protocol message representation. */
-    @Override
+    
     public ServiceDescriptorProto toProto() {
       return proto;
     }
 
     /** Get the type's unqualified name. */
-    @Override
+    
     public String getName() {
       return proto.getName();
     }
@@ -1852,13 +1852,13 @@ public final class Descriptors {
      * Get the type's fully-qualified name.
      * @see Descriptors.Descriptor#getFullName()
      */
-    @Override
+    
     public String getFullName() {
       return fullName;
     }
 
     /** Get the {@link FileDescriptor} containing this descriptor. */
-    @Override
+    
     public FileDescriptor getFile() {
       return file;
     }
@@ -1939,13 +1939,13 @@ public final class Descriptors {
     public int getIndex() { return index; }
 
     /** Convert the descriptor to its protocol message representation. */
-    @Override
+    
     public MethodDescriptorProto toProto() {
       return proto;
     }
 
     /** Get the method's unqualified name. */
-    @Override
+    
     public String getName() {
       return proto.getName();
     }
@@ -1954,13 +1954,13 @@ public final class Descriptors {
      * Get the method's fully-qualified name.
      * @see Descriptors.Descriptor#getFullName()
      */
-    @Override
+    
     public String getFullName() {
       return fullName;
     }
 
     /** Get the {@link FileDescriptor} containing this descriptor. */
-    @Override
+    
     public FileDescriptor getFile() {
       return file;
     }
@@ -2364,19 +2364,19 @@ public final class Descriptors {
      * that has the same name as an existing package.
      */
     private static final class PackageDescriptor extends GenericDescriptor {
-      @Override
+      
       public MessageLite toProto() {
         return file.toProto();
       }
-      @Override
+      
       public String getName() {
         return name;
       }
-      @Override
+      
       public String getFullName() {
         return fullName;
       }
-      @Override
+      
       public FileDescriptor getFile() {
         return file;
       }
@@ -2433,11 +2433,11 @@ public final class Descriptors {
         this.number = number;
       }
 
-      @Override
+      
       public int hashCode() {
         return descriptor.hashCode() * ((1 << 16) - 1) + number;
       }
-      @Override
+      
       public boolean equals(final Object obj) {
         if (!(obj instanceof DescriptorIntPair)) {
           return false;

@@ -81,7 +81,7 @@ final class BooleanArrayList
     this.size = size;
   }
 
-  @Override
+  
   public boolean equals(Object o) {
     if (this == o) {
       return true;
@@ -104,7 +104,7 @@ final class BooleanArrayList
     return true;
   }
 
-  @Override
+  
   public int hashCode() {
     int result = 1;
     for (int i = 0; i < size; i++) {
@@ -113,7 +113,7 @@ final class BooleanArrayList
     return result;
   }
 
-  @Override
+  
   public BooleanList mutableCopyWithCapacity(int capacity) {
     if (capacity < size) {
       throw new IllegalArgumentException();
@@ -121,28 +121,28 @@ final class BooleanArrayList
     return new BooleanArrayList(Arrays.copyOf(array, capacity), size);
   }
 
-  @Override
+  
   public Boolean get(int index) {
     return getBoolean(index);
   }
 
-  @Override
+  
   public boolean getBoolean(int index) {
     ensureIndexInRange(index);
     return array[index];
   }
 
-  @Override
+  
   public int size() {
     return size;
   }
 
-  @Override
+  
   public Boolean set(int index, Boolean element) {
     return setBoolean(index, element);
   }
 
-  @Override
+  
   public boolean setBoolean(int index, boolean element) {
     ensureIsMutable();
     ensureIndexInRange(index);
@@ -151,7 +151,7 @@ final class BooleanArrayList
     return previousValue;
   }
 
-  @Override
+  
   public void add(int index, Boolean element) {
     addBoolean(index, element);
   }
@@ -159,7 +159,7 @@ final class BooleanArrayList
   /**
    * Like {@link #add(Boolean)} but more efficient in that it doesn't box the element.
    */
-  @Override
+  
   public void addBoolean(boolean element) {
     addBoolean(size, element);
   }
@@ -194,7 +194,7 @@ final class BooleanArrayList
     modCount++;
   }
 
-  @Override
+  
   public boolean addAll(Collection<? extends Boolean> collection) {
     ensureIsMutable();
 
@@ -229,7 +229,7 @@ final class BooleanArrayList
     return true;
   }
 
-  @Override
+  
   public boolean remove(Object o) {
     ensureIsMutable();
     for (int i = 0; i < size; i++) {
@@ -243,7 +243,7 @@ final class BooleanArrayList
     return false;
   }
 
-  @Override
+  
   public Boolean remove(int index) {
     ensureIsMutable();
     ensureIndexInRange(index);

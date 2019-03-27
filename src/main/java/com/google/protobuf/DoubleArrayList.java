@@ -81,7 +81,7 @@ final class DoubleArrayList
     this.size = size;
   }
 
-  @Override
+  
   public boolean equals(Object o) {
     if (this == o) {
       return true;
@@ -104,7 +104,7 @@ final class DoubleArrayList
     return true;
   }
 
-  @Override
+  
   public int hashCode() {
     int result = 1;
     for (int i = 0; i < size; i++) {
@@ -114,7 +114,7 @@ final class DoubleArrayList
     return result;
   }
 
-  @Override
+  
   public DoubleList mutableCopyWithCapacity(int capacity) {
     if (capacity < size) {
       throw new IllegalArgumentException();
@@ -122,28 +122,28 @@ final class DoubleArrayList
     return new DoubleArrayList(LegacyUtil.copyOf(array, capacity), size);
   }
 
-  @Override
+  
   public Double get(int index) {
     return getDouble(index);
   }
 
-  @Override
+  
   public double getDouble(int index) {
     ensureIndexInRange(index);
     return array[index];
   }
 
-  @Override
+  
   public int size() {
     return size;
   }
 
-  @Override
+  
   public Double set(int index, Double element) {
     return setDouble(index, element);
   }
 
-  @Override
+  
   public double setDouble(int index, double element) {
     ensureIsMutable();
     ensureIndexInRange(index);
@@ -152,7 +152,7 @@ final class DoubleArrayList
     return previousValue;
   }
 
-  @Override
+  
   public void add(int index, Double element) {
     addDouble(index, element);
   }
@@ -160,7 +160,7 @@ final class DoubleArrayList
   /**
    * Like {@link #add(Double)} but more efficient in that it doesn't box the element.
    */
-  @Override
+  
   public void addDouble(double element) {
     addDouble(size, element);
   }
@@ -195,7 +195,7 @@ final class DoubleArrayList
     modCount++;
   }
 
-  @Override
+  
   public boolean addAll(Collection<? extends Double> collection) {
     ensureIsMutable();
 
@@ -230,7 +230,7 @@ final class DoubleArrayList
     return true;
   }
 
-  @Override
+  
   public boolean remove(Object o) {
     ensureIsMutable();
     for (int i = 0; i < size; i++) {
@@ -244,7 +244,7 @@ final class DoubleArrayList
     return false;
   }
 
-  @Override
+  
   public Double remove(int index) {
     ensureIsMutable();
     ensureIndexInRange(index);

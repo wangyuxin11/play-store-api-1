@@ -5,6 +5,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.github.yeriomin.playstore.TokenDispenserClient;
+
 import java.util.List;
 
 public class TokenDispenserClientTest {

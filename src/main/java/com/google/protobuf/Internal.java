@@ -431,12 +431,12 @@ public final class Internal {
       this.converter = converter;
     }
 
-    @Override
+    
     public T get(int index) {
       return converter.convert(fromList.get(index));
     }
 
-    @Override
+    
     public int size() {
       return fromList.size();
     }
@@ -458,13 +458,13 @@ public final class Internal {
     public static <T extends EnumLite> Converter<Integer, T> newEnumConverter(
         final EnumLiteMap<T> enumMap, final T unrecognizedValue) {
       return new Converter<Integer, T>() {
-        @Override
+        
         public T doForward(Integer value) {
           T result = enumMap.findValueByNumber(value);
           return result == null ? unrecognizedValue : result;
         }
 
-        @Override
+        
         public Integer doBackward(T value) {
           return value.getNumber();
         }
@@ -481,7 +481,7 @@ public final class Internal {
     }
 
     @SuppressWarnings("unchecked")
-    @Override
+    
     public V get(Object key) {
       RealValue result = realMap.get(key);
       if (result == null) {
@@ -490,7 +490,7 @@ public final class Internal {
       return valueConverter.doForward(result);
     }
 
-    @Override
+    
     public V put(K key, V value) {
       RealValue oldValue = realMap.put(key, valueConverter.doBackward(value));
       if (oldValue == null) {
@@ -499,7 +499,7 @@ public final class Internal {
       return valueConverter.doForward(oldValue);
     }
 
-    @Override
+    
     public Set<java.util.Map.Entry<K, V>> entrySet() {
       return new SetAdapter(realMap.entrySet());
     }
@@ -510,12 +510,12 @@ public final class Internal {
         this.realSet = realSet;
       }
 
-      @Override
+      
       public Iterator<java.util.Map.Entry<K, V>> iterator() {
         return new IteratorAdapter(realSet.iterator());
       }
 
-      @Override
+      
       public int size() {
         return realSet.size();
       }
@@ -529,17 +529,17 @@ public final class Internal {
         this.realIterator = realIterator;
       }
 
-      @Override
+      
       public boolean hasNext() {
         return realIterator.hasNext();
       }
 
-      @Override
+      
       public java.util.Map.Entry<K, V> next() {
         return new EntryAdapter(realIterator.next());
       }
 
-      @Override
+      
       public void remove() {
         realIterator.remove();
       }
@@ -552,17 +552,17 @@ public final class Internal {
         this.realEntry = realEntry;
       }
 
-      @Override
+      
       public K getKey() {
         return realEntry.getKey();
       }
 
-      @Override
+      
       public V getValue() {
         return valueConverter.doForward(realEntry.getValue());
       }
 
-      @Override
+      
       public V setValue(V value) {
         RealValue oldValue = realEntry.setValue(
             valueConverter.doBackward(value));
@@ -623,7 +623,7 @@ public final class Internal {
     /**
      * Returns a mutable clone of this list with the specified capacity.
      */
-    @Override
+    
     IntList mutableCopyWithCapacity(int capacity);
   }
 
@@ -651,7 +651,7 @@ public final class Internal {
     /**
      * Returns a mutable clone of this list with the specified capacity.
      */
-    @Override
+    
     BooleanList mutableCopyWithCapacity(int capacity);
   }
 
@@ -679,7 +679,7 @@ public final class Internal {
     /**
      * Returns a mutable clone of this list with the specified capacity.
      */
-    @Override
+    
     LongList mutableCopyWithCapacity(int capacity);
   }
 
@@ -707,7 +707,7 @@ public final class Internal {
     /**
      * Returns a mutable clone of this list with the specified capacity.
      */
-    @Override
+    
     DoubleList mutableCopyWithCapacity(int capacity);
   }
 
@@ -735,7 +735,7 @@ public final class Internal {
     /**
      * Returns a mutable clone of this list with the specified capacity.
      */
-    @Override
+    
     FloatList mutableCopyWithCapacity(int capacity);
   }
 }

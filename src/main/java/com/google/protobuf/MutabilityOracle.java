@@ -35,7 +35,7 @@ package com.google.protobuf;
  */
 interface MutabilityOracle {
   static final MutabilityOracle IMMUTABLE = new MutabilityOracle() {
-    @Override
+    
     public void ensureMutable() {
       throw new UnsupportedOperationException();
     }

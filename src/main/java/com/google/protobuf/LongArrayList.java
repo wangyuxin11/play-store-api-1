@@ -81,7 +81,7 @@ final class LongArrayList
     this.size = size;
   }
 
-  @Override
+  
   public boolean equals(Object o) {
     if (this == o) {
       return true;
@@ -104,7 +104,7 @@ final class LongArrayList
     return true;
   }
 
-  @Override
+  
   public int hashCode() {
     int result = 1;
     for (int i = 0; i < size; i++) {
@@ -113,7 +113,7 @@ final class LongArrayList
     return result;
   }
 
-  @Override
+  
   public LongList mutableCopyWithCapacity(int capacity) {
     if (capacity < size) {
       throw new IllegalArgumentException();
@@ -121,28 +121,28 @@ final class LongArrayList
     return new LongArrayList(LegacyUtil.copyOf(array, capacity), size);
   }
 
-  @Override
+  
   public Long get(int index) {
     return getLong(index);
   }
 
-  @Override
+  
   public long getLong(int index) {
     ensureIndexInRange(index);
     return array[index];
   }
 
-  @Override
+  
   public int size() {
     return size;
   }
 
-  @Override
+  
   public Long set(int index, Long element) {
     return setLong(index, element);
   }
 
-  @Override
+  
   public long setLong(int index, long element) {
     ensureIsMutable();
     ensureIndexInRange(index);
@@ -151,7 +151,7 @@ final class LongArrayList
     return previousValue;
   }
 
-  @Override
+  
   public void add(int index, Long element) {
     addLong(index, element);
   }
@@ -159,7 +159,7 @@ final class LongArrayList
   /**
    * Like {@link #add(Long)} but more efficient in that it doesn't box the element.
    */
-  @Override
+  
   public void addLong(long element) {
     addLong(size, element);
   }
@@ -194,7 +194,7 @@ final class LongArrayList
     modCount++;
   }
 
-  @Override
+  
   public boolean addAll(Collection<? extends Long> collection) {
     ensureIsMutable();
 
@@ -229,7 +229,7 @@ final class LongArrayList
     return true;
   }
 
-  @Override
+  
   public boolean remove(Object o) {
     ensureIsMutable();
     for (int i = 0; i < size; i++) {
@@ -243,7 +243,7 @@ final class LongArrayList
     return false;
   }
 
-  @Override
+  
   public Long remove(int index) {
     ensureIsMutable();
     ensureIndexInRange(index);

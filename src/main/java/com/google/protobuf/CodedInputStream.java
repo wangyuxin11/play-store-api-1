@@ -287,7 +287,7 @@ public final class CodedInputStream {
     private int lastPos = bufferPos;
     private ByteArrayOutputStream byteArrayStream;
 
-    @Override
+    
     public void onRefill() {
       if (byteArrayStream == null) {
         byteArrayStream = new ByteArrayOutputStream();

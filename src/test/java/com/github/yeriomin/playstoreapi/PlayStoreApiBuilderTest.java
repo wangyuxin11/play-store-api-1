@@ -4,6 +4,11 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.github.yeriomin.playstore.ApiBuilderException;
+import com.github.yeriomin.playstore.GooglePlayAPI;
+import com.github.yeriomin.playstore.PlayStoreApiBuilder;
+import com.github.yeriomin.playstore.PropertiesDeviceInfoProvider;
+
 import java.io.IOException;
 import java.util.Locale;
 import java.util.Properties;
@@ -29,7 +34,7 @@ public class PlayStoreApiBuilderTest {
         deviceInfoProvider = new PropertiesDeviceInfoProvider();
         deviceInfoProvider.setProperties(properties);
         deviceInfoProvider.setLocaleString(locale.toString());
-        deviceInfoProvider.setTimeToReport(1482626488L);
+//        deviceInfoProvider.setTimeToReport(1482626488L);
         playStoreApiBuilder = new PlayStoreApiBuilder().setLocale(locale);
     }
 

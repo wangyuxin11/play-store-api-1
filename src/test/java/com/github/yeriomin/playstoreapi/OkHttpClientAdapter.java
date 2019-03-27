@@ -9,6 +9,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
+import com.github.yeriomin.playstore.AuthException;
+import com.github.yeriomin.playstore.GooglePlayAPI;
+import com.github.yeriomin.playstore.GooglePlayException;
+import com.github.yeriomin.playstore.HttpClientAdapter;
+
 class OkHttpClientAdapter extends HttpClientAdapter {
 
     OkHttpClient client;
@@ -85,14 +90,12 @@ class OkHttpClientAdapter extends HttpClientAdapter {
 
     byte[] post(String url, Request.Builder requestBuilder, Map<String, String> headers) throws IOException {
         requestBuilder.url(url);
-
         return request(requestBuilder, headers);
     }
 
     byte[] request(Request.Builder requestBuilder, Map<String, String> headers) throws IOException {
-        Request request = requestBuilder
-            .headers(Headers.of(headers))
-            .build();
+    	Request request = requestBuilder.headers(Headers.of(headers)).build();
+        
         System.out.println("Requesting: " + request.url().toString());
 
         Response response = client.newCall(request).execute();

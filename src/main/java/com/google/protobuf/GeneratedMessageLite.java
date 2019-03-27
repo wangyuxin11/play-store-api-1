@@ -68,19 +68,19 @@ public abstract class GeneratedMessageLite<
   /** For use by generated code only.  */
   protected int memoizedSerializedSize = -1;
 
-  @Override
+  
   @SuppressWarnings("unchecked") // Guaranteed by runtime.
   public final Parser<MessageType> getParserForType() {
     return (Parser<MessageType>) dynamicMethod(MethodToInvoke.GET_PARSER);
   }
 
-  @Override
+  
   @SuppressWarnings("unchecked") // Guaranteed by runtime.
   public final MessageType getDefaultInstanceForType() {
     return (MessageType) dynamicMethod(MethodToInvoke.GET_DEFAULT_INSTANCE);
   }
 
-  @Override
+  
   @SuppressWarnings("unchecked") // Guaranteed by runtime.
   public final BuilderType newBuilderForType() {
     return (BuilderType) dynamicMethod(MethodToInvoke.NEW_BUILDER);
@@ -98,13 +98,13 @@ public abstract class GeneratedMessageLite<
    * NOTE: This implementation is liable to change in the future, and should not be relied on in
    * code.
    */
-  @Override
+  
   public String toString() {
     return MessageLiteToString.toString(this, super.toString());
   }
 
   @SuppressWarnings("unchecked") // Guaranteed by runtime
-  @Override
+  
   public int hashCode() {
     if (memoizedHashCode == 0) {
       HashCodeVisitor visitor = new HashCodeVisitor();
@@ -127,7 +127,7 @@ public abstract class GeneratedMessageLite<
   }
 
   @SuppressWarnings("unchecked") // Guaranteed by isInstance + runtime
-  @Override
+  
   public boolean equals(Object other) {
     if (this == other) {
       return true;
@@ -215,12 +215,12 @@ public abstract class GeneratedMessageLite<
     unknownFields.makeImmutable();
   }
 
-  @Override
+  
   public final boolean isInitialized() {
     return dynamicMethod(MethodToInvoke.IS_INITIALIZED, Boolean.TRUE) != null;
   }
 
-  @Override
+  
   public final BuilderType toBuilder() {
     BuilderType builder = (BuilderType) dynamicMethod(MethodToInvoke.NEW_BUILDER);
     builder.mergeFrom((MessageType) this);
@@ -334,19 +334,19 @@ public abstract class GeneratedMessageLite<
       }
     }
 
-    @Override
+    
     public final boolean isInitialized() {
       return GeneratedMessageLite.isInitialized(instance, false /* shouldMemoize */);
     }
 
-    @Override
+    
     public final BuilderType clear() {
       // No need to copy on write since we're dropping the instance anyways.
       instance = (MessageType) instance.dynamicMethod(MethodToInvoke.NEW_MUTABLE_INSTANCE);
       return (BuilderType) this;
     }
 
-    @Override
+    
     public BuilderType clone() {
       BuilderType builder =
           (BuilderType) getDefaultInstanceForType().newBuilderForType();
@@ -354,7 +354,7 @@ public abstract class GeneratedMessageLite<
       return builder;
     }
 
-    @Override
+    
     public MessageType buildPartial() {
       if (isBuilt) {
         return instance;
@@ -366,7 +366,7 @@ public abstract class GeneratedMessageLite<
       return instance;
     }
 
-    @Override
+    
     public final MessageType build() {
       MessageType result = buildPartial();
       if (!result.isInitialized()) {
@@ -375,7 +375,7 @@ public abstract class GeneratedMessageLite<
       return result;
     }
 
-    @Override
+    
     protected BuilderType internalMergeFrom(MessageType message) {
       return mergeFrom(message);
     }
@@ -387,12 +387,12 @@ public abstract class GeneratedMessageLite<
       return (BuilderType) this;
     }
 
-    @Override
+    
     public MessageType getDefaultInstanceForType() {
       return defaultInstance;
     }
 
-    @Override
+    
     public BuilderType mergeFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -461,7 +461,7 @@ public abstract class GeneratedMessageLite<
       extensions.mergeFrom(((ExtendableMessage) other).extensions);
     }
 
-    @Override
+    
     final void visit(Visitor visitor, MessageType other) {
       super.visit(visitor, other);
       extensions = visitor.visitExtensions(extensions, other.extensions);
@@ -603,7 +603,7 @@ public abstract class GeneratedMessageLite<
     }
 
     /** Check if a singular extension is present. */
-    @Override
+    
     public final <Type> boolean hasExtension(final ExtensionLite<MessageType, Type> extension) {
       GeneratedExtension<MessageType, Type> extensionLite =
           checkIsLite(extension);
@@ -613,7 +613,7 @@ public abstract class GeneratedMessageLite<
     }
 
     /** Get the number of elements in a repeated extension. */
-    @Override
+    
     public final <Type> int getExtensionCount(
         final ExtensionLite<MessageType, List<Type>> extension) {
       GeneratedExtension<MessageType, List<Type>> extensionLite =
@@ -624,7 +624,7 @@ public abstract class GeneratedMessageLite<
     }
 
     /** Get the value of an extension. */
-    @Override
+    
     @SuppressWarnings("unchecked")
     public final <Type> Type getExtension(final ExtensionLite<MessageType, Type> extension) {
       GeneratedExtension<MessageType, Type> extensionLite =
@@ -640,7 +640,7 @@ public abstract class GeneratedMessageLite<
     }
 
     /** Get one element of a repeated extension. */
-    @Override
+    
     @SuppressWarnings("unchecked")
     public final <Type> Type getExtension(
         final ExtensionLite<MessageType, List<Type>> extension, final int index) {
@@ -657,7 +657,7 @@ public abstract class GeneratedMessageLite<
       return extensions.isInitialized();
     }
 
-    @Override
+    
     protected final void makeImmutable() {
       super.makeImmutable();
 
@@ -748,7 +748,7 @@ public abstract class GeneratedMessageLite<
       instance.extensions = extensions;
     }
 
-    @Override
+    
     protected void copyOnWrite() {
       if (!isBuilt) {
         return;
@@ -758,7 +758,7 @@ public abstract class GeneratedMessageLite<
       instance.extensions = instance.extensions.clone();
     }
 
-    @Override
+    
     public final MessageType buildPartial() {
       if (isBuilt) {
         return instance;
@@ -780,27 +780,27 @@ public abstract class GeneratedMessageLite<
     }
 
     /** Check if a singular extension is present. */
-    @Override
+    
     public final <Type> boolean hasExtension(final ExtensionLite<MessageType, Type> extension) {
       return instance.hasExtension(extension);
     }
 
     /** Get the number of elements in a repeated extension. */
-    @Override
+    
     public final <Type> int getExtensionCount(
         final ExtensionLite<MessageType, List<Type>> extension) {
       return instance.getExtensionCount(extension);
     }
 
     /** Get the value of an extension. */
-    @Override
+    
     @SuppressWarnings("unchecked")
     public final <Type> Type getExtension(final ExtensionLite<MessageType, Type> extension) {
       return instance.getExtension(extension);
     }
 
     /** Get one element of a repeated extension. */
-    @Override
+    
     @SuppressWarnings("unchecked")
     public final <Type> Type getExtension(
         final ExtensionLite<MessageType, List<Type>> extension, final int index) {
@@ -810,7 +810,7 @@ public abstract class GeneratedMessageLite<
     // This is implemented here only to work around an apparent bug in the
     // Java compiler and/or build system.  See bug #1898463.  The mere presence
     // of this dummy clone() implementation makes it go away.
-    @Override
+    
     public BuilderType clone() {
       return super.clone();
     }
@@ -935,44 +935,44 @@ public abstract class GeneratedMessageLite<
     final boolean isRepeated;
     final boolean isPacked;
 
-    @Override
+    
     public int getNumber() {
       return number;
     }
 
-    @Override
+    
     public WireFormat.FieldType getLiteType() {
       return type;
     }
 
-    @Override
+    
     public WireFormat.JavaType getLiteJavaType() {
       return type.getJavaType();
     }
 
-    @Override
+    
     public boolean isRepeated() {
       return isRepeated;
     }
 
-    @Override
+    
     public boolean isPacked() {
       return isPacked;
     }
 
-    @Override
+    
     public Internal.EnumLiteMap<?> getEnumType() {
       return enumTypeMap;
     }
 
-    @Override
+    
     @SuppressWarnings("unchecked")
     public MessageLite.Builder internalMergeFrom(MessageLite.Builder to, MessageLite from) {
       return ((Builder) to).mergeFrom((GeneratedMessageLite) from);
     }
 
 
-    @Override
+    
     public int compareTo(ExtensionDescriptor other) {
       return number - other.number;
     }
@@ -1067,7 +1067,7 @@ public abstract class GeneratedMessageLite<
     }
 
     /** Get the field number. */
-    @Override
+    
     public int getNumber() {
       return descriptor.getNumber();
     }
@@ -1077,7 +1077,7 @@ public abstract class GeneratedMessageLite<
      * If the extension is an embedded message or group, returns the default
      * instance of the message.
      */
-    @Override
+    
     public MessageLite getMessageDefaultInstance() {
       return messageDefaultInstance;
     }
@@ -1132,17 +1132,17 @@ public abstract class GeneratedMessageLite<
       }
     }
 
-    @Override
+    
     public FieldType getLiteType() {
       return descriptor.getLiteType();
     }
 
-    @Override
+    
     public boolean isRepeated() {
       return descriptor.isRepeated;
     }
 
-    @Override
+    
     public Type getDefaultValue() {
       return defaultValue;
     }
@@ -1334,7 +1334,7 @@ public abstract class GeneratedMessageLite<
       this.defaultInstance = defaultInstance;
     }
 
-    @Override
+    
     public T parsePartialFrom(CodedInputStream input, ExtensionRegistryLite extensionRegistry)
         throws InvalidProtocolBufferException {
       return GeneratedMessageLite.parsePartialFrom(defaultInstance, input, extensionRegistry);
@@ -1589,7 +1589,7 @@ public abstract class GeneratedMessageLite<
 
     private EqualsVisitor() {}
 
-    @Override
+    
     public boolean visitBoolean(
         boolean minePresent, boolean mine, boolean otherPresent, boolean other) {
       if (minePresent != otherPresent || mine != other) {
@@ -1598,7 +1598,7 @@ public abstract class GeneratedMessageLite<
       return mine;
     }
 
-    @Override
+    
     public int visitInt(boolean minePresent, int mine, boolean otherPresent, int other) {
       if (minePresent != otherPresent || mine != other) {
         throw NOT_EQUALS;
@@ -1606,7 +1606,7 @@ public abstract class GeneratedMessageLite<
       return mine;
     }
 
-    @Override
+    
     public double visitDouble(
         boolean minePresent, double mine, boolean otherPresent, double other) {
       if (minePresent != otherPresent || mine != other) {
@@ -1615,7 +1615,7 @@ public abstract class GeneratedMessageLite<
       return mine;
     }
 
-    @Override
+    
     public float visitFloat(boolean minePresent, float mine, boolean otherPresent, float other) {
       if (minePresent != otherPresent || mine != other) {
         throw NOT_EQUALS;
@@ -1623,7 +1623,7 @@ public abstract class GeneratedMessageLite<
       return mine;
     }
 
-    @Override
+    
     public long visitLong(boolean minePresent, long mine, boolean otherPresent, long other) {
       if (minePresent != otherPresent || mine != other) {
         throw NOT_EQUALS;
@@ -1631,7 +1631,7 @@ public abstract class GeneratedMessageLite<
       return mine;
     }
 
-    @Override
+    
     public String visitString(
         boolean minePresent, String mine, boolean otherPresent, String other) {
       if (minePresent != otherPresent || !mine.equals(other)) {
@@ -1640,7 +1640,7 @@ public abstract class GeneratedMessageLite<
       return mine;
     }
 
-    @Override
+    
     public ByteString visitByteString(
         boolean minePresent, ByteString mine, boolean otherPresent, ByteString other) {
       if (minePresent != otherPresent || !mine.equals(other)) {
@@ -1649,7 +1649,7 @@ public abstract class GeneratedMessageLite<
       return mine;
     }
 
-    @Override
+    
     public Object visitOneofBoolean(boolean minePresent, Object mine, Object other) {
       if (minePresent && mine.equals(other)) {
         return mine;
@@ -1657,7 +1657,7 @@ public abstract class GeneratedMessageLite<
       throw NOT_EQUALS;
     }
 
-    @Override
+    
     public Object visitOneofInt(boolean minePresent, Object mine, Object other) {
       if (minePresent && mine.equals(other)) {
         return mine;
@@ -1665,7 +1665,7 @@ public abstract class GeneratedMessageLite<
       throw NOT_EQUALS;
     }
 
-    @Override
+    
     public Object visitOneofDouble(boolean minePresent, Object mine, Object other) {
       if (minePresent && mine.equals(other)) {
         return mine;
@@ -1673,7 +1673,7 @@ public abstract class GeneratedMessageLite<
       throw NOT_EQUALS;
     }
 
-    @Override
+    
     public Object visitOneofFloat(boolean minePresent, Object mine, Object other) {
       if (minePresent && mine.equals(other)) {
         return mine;
@@ -1681,7 +1681,7 @@ public abstract class GeneratedMessageLite<
       throw NOT_EQUALS;
     }
 
-    @Override
+    
     public Object visitOneofLong(boolean minePresent, Object mine, Object other) {
       if (minePresent && mine.equals(other)) {
         return mine;
@@ -1689,7 +1689,7 @@ public abstract class GeneratedMessageLite<
       throw NOT_EQUALS;
     }
 
-    @Override
+    
     public Object visitOneofString(boolean minePresent, Object mine, Object other) {
       if (minePresent && mine.equals(other)) {
         return mine;
@@ -1697,7 +1697,7 @@ public abstract class GeneratedMessageLite<
       throw NOT_EQUALS;
     }
 
-    @Override
+    
     public Object visitOneofByteString(boolean minePresent, Object mine, Object other) {
       if (minePresent && mine.equals(other)) {
         return mine;
@@ -1705,7 +1705,7 @@ public abstract class GeneratedMessageLite<
       throw NOT_EQUALS;
     }
 
-    @Override
+    
     public Object visitOneofLazyMessage(boolean minePresent, Object mine, Object other) {
       if (minePresent && mine.equals(other)) {
         return mine;
@@ -1713,7 +1713,7 @@ public abstract class GeneratedMessageLite<
       throw NOT_EQUALS;
     }
 
-    @Override
+    
     public Object visitOneofMessage(boolean minePresent, Object mine, Object other) {
       if (minePresent && ((GeneratedMessageLite<?, ?>) mine).equals(this, (MessageLite) other)) {
         return mine;
@@ -1721,14 +1721,14 @@ public abstract class GeneratedMessageLite<
       throw NOT_EQUALS;
     }
 
-    @Override
+    
     public void visitOneofNotSet(boolean minePresent) {
       if (minePresent) {
         throw NOT_EQUALS;
       }
     }
 
-    @Override
+    
     public <T extends MessageLite> T visitMessage(T mine, T other) {
       if (mine == null && other == null) {
         return null;
@@ -1743,7 +1743,7 @@ public abstract class GeneratedMessageLite<
       return mine;
     }
 
-    @Override
+    
     public LazyFieldLite visitLazyMessage(
         LazyFieldLite mine, LazyFieldLite other) {
       if (mine == null && other == null) {
@@ -1758,7 +1758,7 @@ public abstract class GeneratedMessageLite<
       throw NOT_EQUALS;
     }
 
-    @Override
+    
     public <T> ProtobufList<T> visitList(ProtobufList<T> mine, ProtobufList<T> other) {
       if (!mine.equals(other)) {
         throw NOT_EQUALS;
@@ -1766,7 +1766,7 @@ public abstract class GeneratedMessageLite<
       return mine;
     }
 
-    @Override
+    
     public BooleanList visitBooleanList(BooleanList mine, BooleanList other) {
       if (!mine.equals(other)) {
         throw NOT_EQUALS;
@@ -1774,7 +1774,7 @@ public abstract class GeneratedMessageLite<
       return mine;
     }
 
-    @Override
+    
     public IntList visitIntList(IntList mine, IntList other) {
       if (!mine.equals(other)) {
         throw NOT_EQUALS;
@@ -1782,7 +1782,7 @@ public abstract class GeneratedMessageLite<
       return mine;
     }
 
-    @Override
+    
     public DoubleList visitDoubleList(DoubleList mine, DoubleList other) {
       if (!mine.equals(other)) {
         throw NOT_EQUALS;
@@ -1790,7 +1790,7 @@ public abstract class GeneratedMessageLite<
       return mine;
     }
 
-    @Override
+    
     public FloatList visitFloatList(FloatList mine, FloatList other) {
       if (!mine.equals(other)) {
         throw NOT_EQUALS;
@@ -1798,7 +1798,7 @@ public abstract class GeneratedMessageLite<
       return mine;
     }
 
-    @Override
+    
     public LongList visitLongList(LongList mine, LongList other) {
       if (!mine.equals(other)) {
         throw NOT_EQUALS;
@@ -1806,7 +1806,7 @@ public abstract class GeneratedMessageLite<
       return mine;
     }
 
-    @Override
+    
     public FieldSet<ExtensionDescriptor> visitExtensions(
         FieldSet<ExtensionDescriptor> mine,
         FieldSet<ExtensionDescriptor> other) {
@@ -1816,7 +1816,7 @@ public abstract class GeneratedMessageLite<
       return mine;
     }
 
-    @Override
+    
     public UnknownFieldSetLite visitUnknownFields(
         UnknownFieldSetLite mine,
         UnknownFieldSetLite other) {
@@ -1826,7 +1826,7 @@ public abstract class GeneratedMessageLite<
       return mine;
     }
 
-    @Override
+    
     public <K, V> MapFieldLite<K, V> visitMap(MapFieldLite<K, V> mine, MapFieldLite<K, V> other) {
       if (!mine.equals(other)) {
         throw NOT_EQUALS;
@@ -1846,113 +1846,113 @@ public abstract class GeneratedMessageLite<
 
     private int hashCode = 0;
 
-    @Override
+    
     public boolean visitBoolean(
         boolean minePresent, boolean mine, boolean otherPresent, boolean other) {
       hashCode = (53 * hashCode) + Internal.hashBoolean(mine);
       return mine;
     }
 
-    @Override
+    
     public int visitInt(boolean minePresent, int mine, boolean otherPresent, int other) {
       hashCode = (53 * hashCode) + mine;
       return mine;
     }
 
-    @Override
+    
     public double visitDouble(
         boolean minePresent, double mine, boolean otherPresent, double other) {
       hashCode = (53 * hashCode) + Internal.hashLong(Double.doubleToLongBits(mine));
       return mine;
     }
 
-    @Override
+    
     public float visitFloat(boolean minePresent, float mine, boolean otherPresent, float other) {
       hashCode = (53 * hashCode) + Float.floatToIntBits(mine);
       return mine;
     }
 
-    @Override
+    
     public long visitLong(boolean minePresent, long mine, boolean otherPresent, long other) {
       hashCode = (53 * hashCode) + Internal.hashLong(mine);
       return mine;
     }
 
-    @Override
+    
     public String visitString(
         boolean minePresent, String mine, boolean otherPresent, String other) {
       hashCode = (53 * hashCode) + mine.hashCode();
       return mine;
     }
 
-    @Override
+    
     public ByteString visitByteString(
         boolean minePresent, ByteString mine, boolean otherPresent, ByteString other) {
       hashCode = (53 * hashCode) + mine.hashCode();
       return mine;
     }
 
-    @Override
+    
     public Object visitOneofBoolean(boolean minePresent, Object mine, Object other) {
       hashCode = (53 * hashCode) + Internal.hashBoolean(((Boolean) mine));
       return mine;
     }
 
-    @Override
+    
     public Object visitOneofInt(boolean minePresent, Object mine, Object other) {
       hashCode = (53 * hashCode) + (Integer) mine;
       return mine;
     }
 
-    @Override
+    
     public Object visitOneofDouble(boolean minePresent, Object mine, Object other) {
       hashCode = (53 * hashCode) + Internal.hashLong(Double.doubleToLongBits((Double) mine));
       return mine;
     }
 
-    @Override
+    
     public Object visitOneofFloat(boolean minePresent, Object mine, Object other) {
       hashCode = (53 * hashCode) + Float.floatToIntBits((Float) mine);
       return mine;
     }
 
-    @Override
+    
     public Object visitOneofLong(boolean minePresent, Object mine, Object other) {
       hashCode = (53 * hashCode) + Internal.hashLong((Long) mine);
       return mine;
     }
 
-    @Override
+    
     public Object visitOneofString(boolean minePresent, Object mine, Object other) {
       hashCode = (53 * hashCode) + mine.hashCode();
       return mine;
     }
 
-    @Override
+    
     public Object visitOneofByteString(boolean minePresent, Object mine, Object other) {
       hashCode = (53 * hashCode) + mine.hashCode();
       return mine;
     }
 
-    @Override
+    
     public Object visitOneofLazyMessage(boolean minePresent, Object mine, Object other) {
       hashCode = (53 * hashCode) + mine.hashCode();
       return mine;
     }
 
-    @Override
+    
     public Object visitOneofMessage(boolean minePresent, Object mine, Object other) {
       return visitMessage((MessageLite) mine, (MessageLite) other);
     }
 
-    @Override
+    
     public void visitOneofNotSet(boolean minePresent) {
       if (minePresent) {
         throw new IllegalStateException(); // Can't happen if other == this.
       }
     }
 
-    @Override
+    
     public <T extends MessageLite> T visitMessage(T mine, T other) {
       final int protoHash;
       if (mine != null) {
@@ -1968,7 +1968,7 @@ public abstract class GeneratedMessageLite<
       return mine;
     }
 
-    @Override
+    
     public LazyFieldLite visitLazyMessage(LazyFieldLite mine, LazyFieldLite other) {
       final int protoHash;
       if (mine != null) {
@@ -1980,43 +1980,43 @@ public abstract class GeneratedMessageLite<
       return mine;
     }
 
-    @Override
+    
     public <T> ProtobufList<T> visitList(ProtobufList<T> mine, ProtobufList<T> other) {
       hashCode = (53 * hashCode) + mine.hashCode();
       return mine;
     }
 
-    @Override
+    
     public BooleanList visitBooleanList(BooleanList mine, BooleanList other) {
       hashCode = (53 * hashCode) + mine.hashCode();
       return mine;
     }
 
-    @Override
+    
     public IntList visitIntList(IntList mine, IntList other) {
       hashCode = (53 * hashCode) + mine.hashCode();
       return mine;
     }
 
-    @Override
+    
     public DoubleList visitDoubleList(DoubleList mine, DoubleList other) {
       hashCode = (53 * hashCode) + mine.hashCode();
       return mine;
     }
 
-    @Override
+    
     public FloatList visitFloatList(FloatList mine, FloatList other) {
       hashCode = (53 * hashCode) + mine.hashCode();
       return mine;
     }
 
-    @Override
+    
     public LongList visitLongList(LongList mine, LongList other) {
       hashCode = (53 * hashCode) + mine.hashCode();
       return mine;
     }
 
-    @Override
+    
     public FieldSet<ExtensionDescriptor> visitExtensions(
         FieldSet<ExtensionDescriptor> mine,
         FieldSet<ExtensionDescriptor> other) {
@@ -2024,7 +2024,7 @@ public abstract class GeneratedMessageLite<
       return mine;
     }
 
-    @Override
+    
     public UnknownFieldSetLite visitUnknownFields(
         UnknownFieldSetLite mine,
         UnknownFieldSetLite other) {
@@ -2032,7 +2032,7 @@ public abstract class GeneratedMessageLite<
       return mine;
     }
 
-    @Override
+    
     public <K, V> MapFieldLite<K, V> visitMap(MapFieldLite<K, V> mine, MapFieldLite<K, V> other) {
       hashCode = (53 * hashCode) + mine.hashCode();
       return mine;
@@ -2048,88 +2048,88 @@ public abstract class GeneratedMessageLite<
 
     private MergeFromVisitor() {}
 
-    @Override
+    
     public boolean visitBoolean(
         boolean minePresent, boolean mine, boolean otherPresent, boolean other) {
       return otherPresent ? other : mine;
     }
 
-    @Override
+    
     public int visitInt(boolean minePresent, int mine, boolean otherPresent, int other) {
       return otherPresent ? other : mine;
     }
 
-    @Override
+    
     public double visitDouble(
         boolean minePresent, double mine, boolean otherPresent, double other) {
       return otherPresent ? other : mine;
     }
 
-    @Override
+    
     public float visitFloat(boolean minePresent, float mine, boolean otherPresent, float other) {
       return otherPresent ? other : mine;
     }
 
-    @Override
+    
     public long visitLong(boolean minePresent, long mine, boolean otherPresent, long other) {
       return otherPresent ? other : mine;
     }
 
-    @Override
+    
     public String visitString(
         boolean minePresent, String mine, boolean otherPresent, String other) {
       return otherPresent ? other : mine;
     }
 
-    @Override
+    
     public ByteString visitByteString(
         boolean minePresent, ByteString mine, boolean otherPresent, ByteString other) {
       return otherPresent ? other : mine;
     }
 
-    @Override
+    
     public Object visitOneofBoolean(boolean minePresent, Object mine, Object other) {
       return other;
     }
 
-    @Override
+    
     public Object visitOneofInt(boolean minePresent, Object mine, Object other) {
       return other;
     }
 
-    @Override
+    
     public Object visitOneofDouble(boolean minePresent, Object mine, Object other) {
       return other;
     }
 
-    @Override
+    
     public Object visitOneofFloat(boolean minePresent, Object mine, Object other) {
       return other;
     }
 
-    @Override
+    
     public Object visitOneofLong(boolean minePresent, Object mine, Object other) {
       return other;
     }
 
-    @Override
+    
     public Object visitOneofString(boolean minePresent, Object mine, Object other) {
       return other;
     }
 
-    @Override
+    
     public Object visitOneofByteString(boolean minePresent, Object mine, Object other) {
       return other;
     }
 
-    @Override
+    
     public Object visitOneofLazyMessage(boolean minePresent, Object mine, Object other) {
       LazyFieldLite lazy = minePresent ? (LazyFieldLite) mine : new LazyFieldLite();
       lazy.merge((LazyFieldLite) other);
       return lazy;
     }
 
-    @Override
+    
     public Object visitOneofMessage(boolean minePresent, Object mine, Object other) {
       if (minePresent) {
         return visitMessage((MessageLite) mine, (MessageLite) other);
@@ -2137,13 +2137,13 @@ public abstract class GeneratedMessageLite<
       return other;
     }
 
-    @Override
+    
     public void visitOneofNotSet(boolean minePresent) {
       return;
     }
 
     @SuppressWarnings("unchecked") // Guaranteed by runtime.
-    @Override
+    
     public <T extends MessageLite> T visitMessage(T mine, T other) {
       if (mine != null && other != null) {
         return (T) mine.toBuilder().mergeFrom(other).build();
@@ -2152,7 +2152,7 @@ public abstract class GeneratedMessageLite<
       return mine != null ? mine : other;
     }
 
-    @Override
+    
     public LazyFieldLite visitLazyMessage(LazyFieldLite mine, LazyFieldLite other) {
       if (other != null) {
         if (mine == null) {
@@ -2163,7 +2163,7 @@ public abstract class GeneratedMessageLite<
       return mine;
     }
 
-    @Override
+    
     public <T> ProtobufList<T> visitList(ProtobufList<T> mine, ProtobufList<T> other) {
       int size = mine.size();
       int otherSize = other.size();
@@ -2177,7 +2177,7 @@ public abstract class GeneratedMessageLite<
       return size > 0 ? mine : other;
     }
 
-    @Override
+    
     public BooleanList visitBooleanList(BooleanList mine, BooleanList other) {
       int size = mine.size();
       int otherSize = other.size();
@@ -2191,7 +2191,7 @@ public abstract class GeneratedMessageLite<
       return size > 0 ? mine : other;
     }
 
-    @Override
+    
     public IntList visitIntList(IntList mine, IntList other) {
       int size = mine.size();
       int otherSize = other.size();
@@ -2205,7 +2205,7 @@ public abstract class GeneratedMessageLite<
       return size > 0 ? mine : other;
     }
 
-    @Override
+    
     public DoubleList visitDoubleList(DoubleList mine, DoubleList other) {
       int size = mine.size();
       int otherSize = other.size();
@@ -2219,7 +2219,7 @@ public abstract class GeneratedMessageLite<
       return size > 0 ? mine : other;
     }
 
-    @Override
+    
     public FloatList visitFloatList(FloatList mine, FloatList other) {
       int size = mine.size();
       int otherSize = other.size();
@@ -2233,7 +2233,7 @@ public abstract class GeneratedMessageLite<
       return size > 0 ? mine : other;
     }
 
-    @Override
+    
     public LongList visitLongList(LongList mine, LongList other) {
       int size = mine.size();
       int otherSize = other.size();
@@ -2247,7 +2247,7 @@ public abstract class GeneratedMessageLite<
       return size > 0 ? mine : other;
     }
 
-    @Override
+    
     public FieldSet<ExtensionDescriptor> visitExtensions(
         FieldSet<ExtensionDescriptor> mine,
         FieldSet<ExtensionDescriptor> other) {
@@ -2258,7 +2258,7 @@ public abstract class GeneratedMessageLite<
       return mine;
     }
 
-    @Override
+    
     public UnknownFieldSetLite visitUnknownFields(
         UnknownFieldSetLite mine,
         UnknownFieldSetLite other) {
@@ -2266,7 +2266,7 @@ public abstract class GeneratedMessageLite<
           ? mine : UnknownFieldSetLite.mutableCopyOf(mine, other);
     }
 
-    @Override
+    
     public <K, V> MapFieldLite<K, V> visitMap(MapFieldLite<K, V> mine, MapFieldLite<K, V> other) {
       if (!other.isEmpty()) {
         if (!mine.isMutable()) {

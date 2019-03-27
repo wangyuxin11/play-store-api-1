@@ -98,7 +98,7 @@ class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V> {
       FieldSet.FieldDescriptorLite<FieldDescriptorType>>
       SmallSortedMap<FieldDescriptorType, Object> newFieldMap(int arraySize) {
     return new SmallSortedMap<FieldDescriptorType, Object>(arraySize) {
-      @Override
+      
       @SuppressWarnings("unchecked")
       public void makeImmutable() {
         if (!isImmutable()) {
@@ -197,7 +197,7 @@ class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V> {
         overflowEntries.entrySet();
   }
 
-  @Override
+  
   public int size() {
     return entryList.size() + overflowEntries.size();
   }
@@ -208,7 +208,7 @@ class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V> {
    *
    * {@inheritDoc}
    */
-  @Override
+  
   public boolean containsKey(Object o) {
     @SuppressWarnings("unchecked")
     final K key = (K) o;
@@ -221,7 +221,7 @@ class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V> {
    *
    * {@inheritDoc}
    */
-  @Override
+  
   public V get(Object o) {
     @SuppressWarnings("unchecked")
     final K key = (K) o;
@@ -232,7 +232,7 @@ class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V> {
     return overflowEntries.get(key);
   }
 
-  @Override
+  
   public V put(K key, V value) {
     checkMutable();
     final int index = binarySearchInArray(key);
@@ -257,7 +257,7 @@ class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V> {
     return null;
   }
 
-  @Override
+  
   public void clear() {
     checkMutable();
     if (!entryList.isEmpty()) {
@@ -274,7 +274,7 @@ class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V> {
    *
    * {@inheritDoc}
    */
-  @Override
+  
   public V remove(Object o) {
     checkMutable();
     @SuppressWarnings("unchecked")
@@ -348,7 +348,7 @@ class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V> {
    *
    * {@inheritDoc}
    */
-  @Override
+  
   public Set<Map.Entry<K, V>> entrySet() {
     if (lazyEntrySet == null) {
       lazyEntrySet = new EntrySet();
@@ -411,22 +411,22 @@ class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V> {
       this.value = value;
     }
 
-    @Override
+    
     public K getKey() {
       return key;
     }
 
-    @Override
+    
     public V getValue() {
       return value;
     }
 
-    @Override
+    
     public int compareTo(Entry other) {
       return getKey().compareTo(other.getKey());
     }
 
-    @Override
+    
     public V setValue(V newValue) {
       checkMutable();
       final V oldValue = this.value;
@@ -434,7 +434,7 @@ class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V> {
       return oldValue;
     }
 
-    @Override
+    
     public boolean equals(Object o) {
       if (o == this) {
         return true;
@@ -447,13 +447,13 @@ class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V> {
       return equals(key, other.getKey()) && equals(value, other.getValue());
     }
 
-    @Override
+    
     public int hashCode() {
       return (key == null ? 0 : key.hashCode()) ^
           (value == null ? 0 : value.hashCode());
     }
 
-    @Override
+    
     public String toString() {
       return key + "=" + value;
     }
@@ -469,12 +469,12 @@ class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V> {
    */
   private class EntrySet extends AbstractSet<Map.Entry<K, V>> {
 
-    @Override
+    
     public Iterator<Map.Entry<K, V>> iterator() {
       return new EntryIterator();
     }
 
-    @Override
+    
     public int size() {
       return SmallSortedMap.this.size();
     }
@@ -484,7 +484,7 @@ class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V> {
      *
      * {@inheritDoc}
      */
-    @Override
+    
     public boolean contains(Object o) {
       @SuppressWarnings("unchecked")
       final Map.Entry<K, V> entry = (Map.Entry<K, V>) o;
@@ -494,7 +494,7 @@ class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V> {
           (existing != null && existing.equals(value));
     }
 
-    @Override
+    
     public boolean add(Map.Entry<K, V> entry) {
       if (!contains(entry)) {
         put(entry.getKey(), entry.getValue());
@@ -508,7 +508,7 @@ class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V> {
      *
      * {@inheritDoc}
      */
-    @Override
+    
     public boolean remove(Object o) {
       @SuppressWarnings("unchecked")
       final Map.Entry<K, V> entry = (Map.Entry<K, V>) o;
@@ -519,7 +519,7 @@ class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V> {
       return false;
     }
 
-    @Override
+    
     public void clear() {
       SmallSortedMap.this.clear();
     }
@@ -535,13 +535,13 @@ class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V> {
     private boolean nextCalledBeforeRemove;
     private Iterator<Map.Entry<K, V>> lazyOverflowIterator;
 
-    @Override
+    
     public boolean hasNext() {
       return (pos + 1) < entryList.size() ||
           getOverflowIterator().hasNext();
     }
 
-    @Override
+    
     public Map.Entry<K, V> next() {
       nextCalledBeforeRemove = true;
       // Always increment pos so that we know whether the last returned value
@@ -552,7 +552,7 @@ class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V> {
       return getOverflowIterator().next();
     }
 
-    @Override
+    
     public void remove() {
       if (!nextCalledBeforeRemove) {
         throw new IllegalStateException("remove() was called before next()");
@@ -590,15 +590,15 @@ class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V> {
 
     private static final Iterator<Object> ITERATOR =
         new Iterator<Object>() {
-          @Override
+          
           public boolean hasNext() {
             return false;
           }
-          @Override
+          
           public Object next() {
             throw new NoSuchElementException();
           }
-          @Override
+          
           public void remove() {
             throw new UnsupportedOperationException();
           }
@@ -606,7 +606,7 @@ class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V> {
 
     private static final Iterable<Object> ITERABLE =
         new Iterable<Object>() {
-          @Override
+          
           public Iterator<Object> iterator() {
             return ITERATOR;
           }
@@ -618,7 +618,7 @@ class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V> {
     }
   }
   
-  @Override
+  
   public boolean equals(Object o) {
     if (this == o) {
       return true;
@@ -654,7 +654,7 @@ class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V> {
     return true;
   }
   
-  @Override
+  
   public int hashCode() {
     int h = 0;
     final int listSize = getNumArrayEntries();

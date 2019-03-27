@@ -80,7 +80,7 @@ final class IntArrayList
     this.size = size;
   }
 
-  @Override
+  
   public boolean equals(Object o) {
     if (this == o) {
       return true;
@@ -103,7 +103,7 @@ final class IntArrayList
     return true;
   }
 
-  @Override
+  
   public int hashCode() {
     int result = 1;
     for (int i = 0; i < size; i++) {
@@ -112,7 +112,7 @@ final class IntArrayList
     return result;
   }
 
-  @Override
+  
   public IntList mutableCopyWithCapacity(int capacity) {
     if (capacity < size) {
       throw new IllegalArgumentException();
@@ -120,28 +120,28 @@ final class IntArrayList
     return new IntArrayList(ArraysCompat.copyOf(array, capacity), size);
   }
 
-  @Override
+  
   public Integer get(int index) {
     return getInt(index);
   }
 
-  @Override
+  
   public int getInt(int index) {
     ensureIndexInRange(index);
     return array[index];
   }
 
-  @Override
+  
   public int size() {
     return size;
   }
 
-  @Override
+  
   public Integer set(int index, Integer element) {
     return setInt(index, element);
   }
 
-  @Override
+  
   public int setInt(int index, int element) {
     ensureIsMutable();
     ensureIndexInRange(index);
@@ -150,7 +150,7 @@ final class IntArrayList
     return previousValue;
   }
 
-  @Override
+  
   public void add(int index, Integer element) {
     addInt(index, element);
   }
@@ -158,7 +158,7 @@ final class IntArrayList
   /**
    * Like {@link #add(Integer)} but more efficient in that it doesn't box the element.
    */
-  @Override
+  
   public void addInt(int element) {
     addInt(size, element);
   }
@@ -193,7 +193,7 @@ final class IntArrayList
     modCount++;
   }
 
-  @Override
+  
   public boolean addAll(Collection<? extends Integer> collection) {
     ensureIsMutable();
 
@@ -228,7 +228,7 @@ final class IntArrayList
     return true;
   }
 
-  @Override
+  
   public boolean remove(Object o) {
     ensureIsMutable();
     for (int i = 0; i < size; i++) {
@@ -242,7 +242,7 @@ final class IntArrayList
     return false;
   }
 
-  @Override
+  
   public Integer remove(int index) {
     ensureIsMutable();
     ensureIndexInRange(index);

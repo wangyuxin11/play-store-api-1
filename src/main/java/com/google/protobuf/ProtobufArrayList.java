@@ -60,7 +60,7 @@ final class ProtobufArrayList<E> extends AbstractProtobufList<E> {
     this.list = list;
   }
 
-  @Override
+  
   public ProtobufArrayList<E> mutableCopyWithCapacity(int capacity) {
     if (capacity < size()) {
       throw new IllegalArgumentException();
@@ -70,19 +70,19 @@ final class ProtobufArrayList<E> extends AbstractProtobufList<E> {
     return new ProtobufArrayList<E>(newList);
   }
   
-  @Override
+  
   public void add(int index, E element) {
     ensureIsMutable();
     list.add(index, element);
     modCount++;
   }
 
-  @Override
+  
   public E get(int index) {
     return list.get(index);
   }
   
-  @Override
+  
   public E remove(int index) {
     ensureIsMutable();
     E toReturn = list.remove(index);
@@ -90,7 +90,7 @@ final class ProtobufArrayList<E> extends AbstractProtobufList<E> {
     return toReturn;
   }
   
-  @Override
+  
   public E set(int index, E element) {
     ensureIsMutable();
     E toReturn = list.set(index, element);
@@ -98,7 +98,7 @@ final class ProtobufArrayList<E> extends AbstractProtobufList<E> {
     return toReturn;
   }
 
-  @Override
+  
   public int size() {
     return list.size();
   }

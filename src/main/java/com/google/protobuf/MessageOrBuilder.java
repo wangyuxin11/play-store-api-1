@@ -42,7 +42,7 @@ import java.util.Map;
 public interface MessageOrBuilder extends MessageLiteOrBuilder {
 
   // (From MessageLite, re-declared here only for return type covariance.)
-  @Override
+  
   Message getDefaultInstanceForType();
 
   /**

@@ -81,7 +81,7 @@ final class FloatArrayList
     this.size = size;
   }
 
-  @Override
+  
   public boolean equals(Object o) {
     if (this == o) {
       return true;
@@ -104,7 +104,7 @@ final class FloatArrayList
     return true;
   }
 
-  @Override
+  
   public int hashCode() {
     int result = 1;
     for (int i = 0; i < size; i++) {
@@ -113,7 +113,7 @@ final class FloatArrayList
     return result;
   }
 
-  @Override
+  
   public FloatList mutableCopyWithCapacity(int capacity) {
     if (capacity < size) {
       throw new IllegalArgumentException();
@@ -121,28 +121,28 @@ final class FloatArrayList
     return new FloatArrayList(LegacyUtil.copyOf(array, capacity), size);
   }
 
-  @Override
+  
   public Float get(int index) {
     return getFloat(index);
   }
 
-  @Override
+  
   public float getFloat(int index) {
     ensureIndexInRange(index);
     return array[index];
   }
 
-  @Override
+  
   public int size() {
     return size;
   }
 
-  @Override
+  
   public Float set(int index, Float element) {
     return setFloat(index, element);
   }
 
-  @Override
+  
   public float setFloat(int index, float element) {
     ensureIsMutable();
     ensureIndexInRange(index);
@@ -151,7 +151,7 @@ final class FloatArrayList
     return previousValue;
   }
 
-  @Override
+  
   public void add(int index, Float element) {
     addFloat(index, element);
   }
@@ -159,7 +159,7 @@ final class FloatArrayList
   /**
    * Like {@link #add(Float)} but more efficient in that it doesn't box the element.
    */
-  @Override
+  
   public void addFloat(float element) {
     addFloat(size, element);
   }
@@ -194,7 +194,7 @@ final class FloatArrayList
     modCount++;
   }
 
-  @Override
+  
   public boolean addAll(Collection<? extends Float> collection) {
     ensureIsMutable();
 
@@ -229,7 +229,7 @@ final class FloatArrayList
     return true;
   }
 
-  @Override
+  
   public boolean remove(Object o) {
     ensureIsMutable();
     for (int i = 0; i < size; i++) {
@@ -243,7 +243,7 @@ final class FloatArrayList
     return false;
   }
 
-  @Override
+  
   public Float remove(int index) {
     ensureIsMutable();
     ensureIndexInRange(index);

@@ -55,7 +55,7 @@ public abstract class AbstractMessage
     extends AbstractMessageLite
     implements Message {
 
-  @Override
+  
   public boolean isInitialized() {
     return MessageReflection.isInitialized(this);
   }
@@ -89,42 +89,42 @@ public abstract class AbstractMessage
   }
 
 
-  @Override
+  
   public List<String> findInitializationErrors() {
     return MessageReflection.findMissingFields(this);
   }
 
-  @Override
+  
   public String getInitializationErrorString() {
     return MessageReflection.delimitWithCommas(findInitializationErrors());
   }
 
   /** TODO(jieluo): Clear it when all subclasses have implemented this method. */
-  @Override
+  
   public boolean hasOneof(OneofDescriptor oneof) {
     throw new UnsupportedOperationException("hasOneof() is not implemented.");
   }
 
   /** TODO(jieluo): Clear it when all subclasses have implemented this method. */
-  @Override
+  
   public FieldDescriptor getOneofFieldDescriptor(OneofDescriptor oneof) {
     throw new UnsupportedOperationException(
         "getOneofFieldDescriptor() is not implemented.");
   }
 
-  @Override
+  
   public final String toString() {
     return TextFormat.printToString(this);
   }
 
-  @Override
+  
   public void writeTo(final CodedOutputStream output) throws IOException {
     MessageReflection.writeMessageTo(this, getAllFields(), output, false);
   }
 
   protected int memoizedSize = -1;
 
-  @Override
+  
   public int getSerializedSize() {
     int size = memoizedSize;
     if (size != -1) {
@@ -135,7 +135,7 @@ public abstract class AbstractMessage
     return memoizedSize;
   }
 
-  @Override
+  
   public boolean equals(final Object other) {
     if (other == this) {
       return true;
@@ -151,7 +151,7 @@ public abstract class AbstractMessage
         getUnknownFields().equals(otherMessage.getUnknownFields());
   }
 
-  @Override
+  
   public int hashCode() {
     int hash = memoizedHashCode;
     if (hash == 0) {
@@ -311,7 +311,7 @@ public abstract class AbstractMessage
    * Package private helper method for AbstractParser to create
    * UninitializedMessageException with missing field information.
    */
-  @Override
+  
   UninitializedMessageException newUninitializedMessageException() {
     return Builder.newUninitializedMessageException(this);
   }
@@ -328,29 +328,29 @@ public abstract class AbstractMessage
       extends AbstractMessageLite.Builder
       implements Message.Builder {
     // The compiler produces an error if this is not declared explicitly.
-    @Override
+    
     public abstract BuilderType clone();
 
     /** TODO(jieluo): Clear it when all subclasses have implemented this method. */
-    @Override
+    
     public boolean hasOneof(OneofDescriptor oneof) {
       throw new UnsupportedOperationException("hasOneof() is not implemented.");
     }
 
     /** TODO(jieluo): Clear it when all subclasses have implemented this method. */
-    @Override
+    
     public FieldDescriptor getOneofFieldDescriptor(OneofDescriptor oneof) {
       throw new UnsupportedOperationException(
           "getOneofFieldDescriptor() is not implemented.");
     }
 
     /** TODO(jieluo): Clear it when all subclasses have implemented this method. */
-    @Override
+    
     public BuilderType clearOneof(OneofDescriptor oneof) {
       throw new UnsupportedOperationException("clearOneof() is not implemented.");
     }
 
-    @Override
+    
     public BuilderType clear() {
       for (final Map.Entry<FieldDescriptor, Object> entry :
            getAllFields().entrySet()) {
@@ -359,22 +359,22 @@ public abstract class AbstractMessage
       return (BuilderType) this;
     }
 
-    @Override
+    
     public List<String> findInitializationErrors() {
       return MessageReflection.findMissingFields(this);
     }
 
-    @Override
+    
     public String getInitializationErrorString() {
       return MessageReflection.delimitWithCommas(findInitializationErrors());
     }
     
-    @Override
+    
     protected BuilderType internalMergeFrom(AbstractMessageLite other) {
       return mergeFrom((Message) other);
     }
 
-    @Override
+    
     public BuilderType mergeFrom(final Message other) {
       if (other.getDescriptorForType() != getDescriptorForType()) {
         throw new IllegalArgumentException(
@@ -418,13 +418,13 @@ public abstract class AbstractMessage
       return (BuilderType) this;
     }
 
-    @Override
+    
     public BuilderType mergeFrom(final CodedInputStream input)
                                  throws IOException {
       return mergeFrom(input, ExtensionRegistry.getEmptyRegistry());
     }
 
-    @Override
+    
     public BuilderType mergeFrom(
         final CodedInputStream input,
         final ExtensionRegistryLite extensionRegistry)
@@ -452,7 +452,7 @@ public abstract class AbstractMessage
       return (BuilderType) this;
     }
 
-    @Override
+    
     public BuilderType mergeUnknownFields(final UnknownFieldSet unknownFields) {
       setUnknownFields(
         UnknownFieldSet.newBuilder(getUnknownFields())
@@ -461,19 +461,19 @@ public abstract class AbstractMessage
       return (BuilderType) this;
     }
 
-    @Override
+    
     public Message.Builder getFieldBuilder(final FieldDescriptor field) {
       throw new UnsupportedOperationException(
           "getFieldBuilder() called on an unsupported message type.");
     }
 
-    @Override
+    
     public Message.Builder getRepeatedFieldBuilder(final FieldDescriptor field, int index) {
       throw new UnsupportedOperationException(
           "getRepeatedFieldBuilder() called on an unsupported message type.");
     }
 
-    @Override
+    
     public String toString() {
       return TextFormat.printToString(this);
     }
@@ -532,13 +532,13 @@ public abstract class AbstractMessage
     // AbstractMessageLite.java -- not sure.)  I suspect this is a compiler
     // bug.
 
-    @Override
+    
     public BuilderType mergeFrom(final ByteString data)
         throws InvalidProtocolBufferException {
       return (BuilderType) super.mergeFrom(data);
     }
 
-    @Override
+    
     public BuilderType mergeFrom(
         final ByteString data,
         final ExtensionRegistryLite extensionRegistry)
@@ -546,20 +546,20 @@ public abstract class AbstractMessage
       return (BuilderType) super.mergeFrom(data, extensionRegistry);
     }
 
-    @Override
+    
     public BuilderType mergeFrom(final byte[] data)
         throws InvalidProtocolBufferException {
       return (BuilderType) super.mergeFrom(data);
     }
 
-    @Override
+    
     public BuilderType mergeFrom(
         final byte[] data, final int off, final int len)
         throws InvalidProtocolBufferException {
       return (BuilderType) super.mergeFrom(data, off, len);
     }
 
-    @Override
+    
     public BuilderType mergeFrom(
         final byte[] data,
         final ExtensionRegistryLite extensionRegistry)
@@ -567,7 +567,7 @@ public abstract class AbstractMessage
       return (BuilderType) super.mergeFrom(data, extensionRegistry);
     }
 
-    @Override
+    
     public BuilderType mergeFrom(
         final byte[] data, final int off, final int len,
         final ExtensionRegistryLite extensionRegistry)
@@ -575,13 +575,13 @@ public abstract class AbstractMessage
       return (BuilderType) super.mergeFrom(data, off, len, extensionRegistry);
     }
 
-    @Override
+    
     public BuilderType mergeFrom(final InputStream input)
         throws IOException {
       return (BuilderType) super.mergeFrom(input);
     }
 
-    @Override
+    
     public BuilderType mergeFrom(
         final InputStream input,
         final ExtensionRegistryLite extensionRegistry)
@@ -589,13 +589,13 @@ public abstract class AbstractMessage
       return (BuilderType) super.mergeFrom(input, extensionRegistry);
     }
 
-    @Override
+    
     public boolean mergeDelimitedFrom(final InputStream input)
         throws IOException {
       return super.mergeDelimitedFrom(input);
     }
 
-    @Override
+    
     public boolean mergeDelimitedFrom(
         final InputStream input,
         final ExtensionRegistryLite extensionRegistry)
