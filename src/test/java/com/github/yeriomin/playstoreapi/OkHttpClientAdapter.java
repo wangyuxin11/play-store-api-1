@@ -16,7 +16,7 @@ import com.github.yeriomin.playstore.api.HttpClientAdapter;
 
 class OkHttpClientAdapter extends HttpClientAdapter {
 
-    OkHttpClient client;
+    OkHttpClient okHttpClient;
 
     public OkHttpClientAdapter() {
         setClient(new OkHttpClient.Builder()
@@ -38,8 +38,8 @@ class OkHttpClientAdapter extends HttpClientAdapter {
         );
     }
 
-    public void setClient(OkHttpClient client) {
-        this.client = client;
+    public void setClient(OkHttpClient okHttpClient) {
+        this.okHttpClient = okHttpClient;
     }
 
     @Override
@@ -58,19 +58,21 @@ class OkHttpClientAdapter extends HttpClientAdapter {
     }
 
     @Override
-    public byte[] post(String url, Map<String, String> params, Map<String, String> headers) throws IOException {
+    public byte[] post(String url, Map<String, String> bodyParams, Map<String, String> headers) throws IOException {
         headers.put("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
 
         FormBody.Builder bodyBuilder = new FormBody.Builder();
-        if (null != params && !params.isEmpty()) {
-            for (String name: params.keySet()) {
-                bodyBuilder.add(name, params.get(name));
+        if (null != bodyParams && !bodyParams.isEmpty()) {
+            for (String name: bodyParams.keySet()) {
+            	System.out.println("okhttp3.FormBody add name=" + name + ", value=" + bodyParams.get(name));
+                bodyBuilder.add(name, bodyParams.get(name));
             }
         }
 
+        System.out.println("requestBuilder url : " + url);
+        System.out.println("requestBuilder post contentLength : " + bodyBuilder.build().contentLength());
         Request.Builder requestBuilder = new Request.Builder()
-            .url(url)
-            .post(bodyBuilder.build());
+        		.url(url).post(bodyBuilder.build());
 
         return post(url, requestBuilder, headers);
     }
@@ -98,11 +100,15 @@ class OkHttpClientAdapter extends HttpClientAdapter {
         
         System.out.println("Requesting: " + request.url().toString());
 
-        Response response = client.newCall(request).execute();
+        Response response = okHttpClient.newCall(request).execute();
 
         int code = response.code();
         byte[] content = response.body().bytes();
 
+        System.out.println("response.code=" + code);
+        System.out.println("response.content=" + new String(content));
+        System.out.println("response.content.length=" + content.length);
+        
         if (code >= 400) {
             GooglePlayException e = new GooglePlayException("Malformed request", code);
             if (code == 401 || code == 403) {

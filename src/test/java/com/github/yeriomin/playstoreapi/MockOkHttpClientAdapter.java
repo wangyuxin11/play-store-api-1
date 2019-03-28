@@ -25,16 +25,19 @@ class MockOkHttpClientAdapter extends OkHttpClientAdapter {
         byte[] body = new byte[0];
 		Request request = requestBuilder.headers(Headers.of(headers)).build();
 		this.requests.add(request);
+		
+		System.out.println("GET 'body file name' by request...");
         String fileName = getBodyFileName(request);
         System.out.println("MockOkHttpClientAdapter -> Checking if " + fileName + " exists");
         
-        if(fileName.indexOf("auth") > 0) {
-        	fileName = "request.auth.1019146712.bin";
-        } else if(fileName.indexOf("checkin") > 0) {
-        	fileName = "request.checkin.-1877457821.bin";
-        }
+//        if(fileName.indexOf("auth") > 0) {
+//        	fileName = "request.auth.822171593.bin";
+//        }
+//        if(fileName.indexOf("checkin") > 0) {
+//        	fileName = "request.checkin.-1877457821.bin";
+//        }
         
-        System.out.println("fileName = " + fileName);
+        System.err.println("fileName = " + fileName);
         
         URL url = getClass().getClassLoader().getResource(fileName);
         if (null != url) {
@@ -42,7 +45,8 @@ class MockOkHttpClientAdapter extends OkHttpClientAdapter {
             System.out.println("Body FOUND. Reading from disk. " + path);
             body = read(path);
         } else {
-            System.out.println("Body NOT found. Making a live request.");
+        	//body bin文件  未找到，发起实时请求
+            System.out.println("Body NOT found. Making a live request. (bin文件不存在，body未找到，提出实时请求)");
             try {
                 body = super.request(requestBuilder, headers);
                 write(fileName, body);
@@ -67,6 +71,7 @@ class MockOkHttpClientAdapter extends OkHttpClientAdapter {
     }
 
     static byte[] getBodyBytes(Request request) {
+    	System.out.println("getBodyBytes by request..");
         if (request.body() == null) {
             return null;
         }
@@ -112,14 +117,20 @@ class MockOkHttpClientAdapter extends OkHttpClientAdapter {
         StringBuilder fileName = new StringBuilder();
         fileName.append("request");
         fileName.append(request.url().encodedPath().replace("/", "."));
+        
+        String x = null;
         for (String key: request.url().queryParameterNames()) {
             for (String value: request.url().queryParameterValues(key)) {
-                fileName.append(".").append(key).append(".").append(value.replace(":", "."));
+            	x = "." + key + "." + value.replace(":", ".");
+            	fileName.append(x);
+            	System.out.println("getBodyFileName key=" + key + ",value=" + value + ",x=" + x);
+                //fileName.append(".").append(key).append(".").append(value.replace(":", "."));
             }
         }
+        
         byte[] body = getBodyBytes(request);
         if (null != body) {
-            fileName.append(".").append(Arrays.hashCode(body));
+            fileName.append(".").append(Arrays.hashCode(body)); //hashCode 返回基于指定数组的内容的哈希码。
         }
         fileName.append(".bin");
         return fileName.toString();

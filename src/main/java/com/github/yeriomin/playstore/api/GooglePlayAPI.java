@@ -116,6 +116,9 @@ public class GooglePlayAPI {
         }
     }
 
+    //NEWEST 最新的
+    //HIGHRATING 高等级
+    //HELPFUL 有益的
     public enum REVIEW_SORT {
         NEWEST(0), HIGHRATING(1), HELPFUL(4);
 
@@ -357,18 +360,30 @@ public class GooglePlayAPI {
      *
      */
     public String generateAC2DMToken(String email, String password) throws IOException {
-        Map<String, String> params = getDefaultLoginParams(email, password);
-        params.put("service", "ac2dm");
-        params.put("add_account", "1");
-        params.put("callerPkg", "com.google.android.gms");
+    	//构造map : DefaultLoginParams
+        Map<String, String> bodyParams = getDefaultLoginParams(email, password);
+        bodyParams.put("service", "ac2dm");
+        bodyParams.put("add_account", "1");
+        bodyParams.put("callerPkg", "com.google.android.gms");
+        
+        //构造map: AuthHeaders
         Map<String, String> headers = getAuthHeaders();
         headers.put("app", "com.google.android.gms");
-        byte[] responseBytes = client.post(URL_LOGIN, params, headers);
+        
+        //客户端请求
+        byte[] responseBytes = client.post(URL_LOGIN, bodyParams, headers);
         Map<String, String> response = parseResponse(new String(responseBytes));
         if (response.containsKey("Auth")) {
             return response.get("Auth");
         } else {
-            throw new AuthException("Authentication failed! (loginAC2DM)");
+        	if(!response.isEmpty()) {
+        		for (Map.Entry<String, String> entry : response.entrySet()) { 
+        			System.out.println("Authentication failed! (loginAC2DM) >>> Key = " + entry.getKey() + ", Value = " + entry.getValue()); 
+        		}        		
+        	} else {
+        		System.err.println("Authentication failed! (loginAC2DM) >>> response.isEmpty");
+        	}
+        	throw new AuthException("Authentication failed! (loginAC2DM)");
         }
     }
 
@@ -568,11 +583,15 @@ public class GooglePlayAPI {
 
     /**
      * Fetches the reviews of given package name by sorting passed choice.
+     * 通过排序传递的选项来获取给定包名称的评论。
      *
      * Default values for offset and numberOfResults are "0" and "20" respectively.
      * If you request more than 20 reviews, you might get a malformed request exception.
+     * 如果您请求超过20条评论，可能会得到一个格式错误的请求异常。
      *
      * Supply version code to only get reviews for that version of the app
+     * 提供版本代码以仅获取该版本应用程序的评论
+     * 
      */
     public ReviewResponse reviews(String packageName, REVIEW_SORT sort, Integer offset, Integer numberOfResults, Integer versionCode) throws IOException {
         // If you request more than 20 reviews, don't be surprised if you get a MalformedRequest exception
@@ -849,12 +868,17 @@ public class GooglePlayAPI {
     }
 
     /**
+     * 登录函数用这个
      * login methods use this
      * Most likely not all of these are required, but the Market app sends them, so we will too
-     *
+     * 很可能不是所有这些都是必需的，但是市场应用程序会发送它们，所以我们也会
+     * 
+     * 
      * client_sig is SHA1 digest of encoded certificate on
      * GoogleLoginService(package name : com.google.android.gsf) system APK.
+     * 
      * But google doesn't seem to care of value of this parameter.
+     * 但谷歌似乎并不关心这个参数的价值。
      */
     protected Map<String, String> getDefaultLoginParams(String email, String password) throws GooglePlayException {
         Map<String, String> params = new HashMap<String, String>();
@@ -873,8 +897,8 @@ public class GooglePlayAPI {
         params.put("device_country", this.locale.getCountry().toLowerCase());
         params.put("lang", this.locale.getLanguage().toLowerCase());
         params.put("sdk_version", String.valueOf(this.deviceInfoProvider.getSdkVersion()));
-        params.put("client_sig", "38918a453d07199354f8b19af05ec6562ced5788");
-        params.put("callerSig", "38918a453d07199354f8b19af05ec6562ced5788");
+        params.put("client_sig", "4942627504a8884bdad3ca022976fbdbe0c56dfb");
+        params.put("callerSig", "4942627504a8884bdad3ca022976fbdbe0c56dfb");
         return params;
     }
 
